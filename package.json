@@ -4,8 +4,7 @@
   "private": true,
   "description": "Official editorial landing page for Llunevie — Native Android eReader & Light Novel Collection Manager",
   "scripts": {
-    "start": "npx serve .",
-    "build": "echo 'Static build ready for Vercel'"
+    "start": "npx serve ."
   },
   "repository": {
     "type": "git",
