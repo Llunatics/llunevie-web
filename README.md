@@ -14,7 +14,7 @@ llunevie-web/
 ├── index.html
 ├── vercel.json
 ├── package.json
-├── public/
+├── assets/
 │   ├── llunevie-icon.svg
 │   └── screenshots/
 └── src/

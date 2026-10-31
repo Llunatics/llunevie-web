@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Llunevie — Android eReader &amp; Light Novel App</title>
   <meta name="description" content="Llunevie is a clean Android eReader, Light Novel reader, and book collection app." />
-  <link rel="icon" type="image/svg+xml" href="public/llunevie-icon.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/llunevie-icon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -164,7 +164,7 @@
               <div class="hero-phone-slot pos-center" onclick="selectHeroPhone(0)">
                 <div class="phone-frame w-full h-full">
                   <div class="phone-frame-screen">
-                    <img src="public/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
+                    <img src="assets/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
                   </div>
                 </div>
               </div>
@@ -172,7 +172,7 @@
               <div class="hero-phone-slot pos-right" onclick="selectHeroPhone(1)">
                 <div class="phone-frame w-full h-full">
                   <div class="phone-frame-screen">
-                    <img src="public/screenshots/ss_reader_cover.jpg" alt="Llunevie Light Novel Reader" />
+                    <img src="assets/screenshots/ss_reader_cover.jpg" alt="Llunevie Light Novel Reader" />
                   </div>
                 </div>
               </div>
@@ -180,7 +180,7 @@
               <div class="hero-phone-slot pos-left" onclick="selectHeroPhone(2)">
                 <div class="phone-frame w-full h-full">
                   <div class="phone-frame-screen">
-                    <img src="public/screenshots/ss_home_dark.jpg" alt="Llunevie Dark Mode Home" />
+                    <img src="assets/screenshots/ss_home_dark.jpg" alt="Llunevie Dark Mode Home" />
                   </div>
                 </div>
               </div>
@@ -255,32 +255,32 @@
           <div class="lg:col-span-6 flex flex-col items-center justify-center">
             <!-- Panel A: 1-Page Light Novel Reader + Illustrated Page Pair -->
             <div data-screen-panel="ln-single" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_reader_cover.jpg', '1-Page Light Novel Reader')">
+              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', '1-Page Light Novel Reader')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_reader_cover.jpg" alt="1-Page Light Novel Reader" />
+                  <img src="assets/screenshots/ss_reader_cover.jpg" alt="1-Page Light Novel Reader" />
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_toc_illust.jpg', '1-Page Illustrated Reader')">
+              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', '1-Page Illustrated Reader')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_toc_illust.jpg" alt="Illustrated Page Reader" />
+                  <img src="assets/screenshots/ss_toc_illust.jpg" alt="Illustrated Page Reader" />
                 </div>
               </div>
             </div>
 
             <!-- Panel B: Landscape 2-Page Spread -->
             <div data-screen-panel="spread-2p" class="hidden w-full max-w-[540px]">
-              <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_spread_2page.jpg', 'Two-Page Book Spread')">
+              <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_spread_2page.jpg', 'Two-Page Book Spread')">
                 <div class="landscape-frame-screen">
-                  <img src="public/screenshots/ss_spread_2page.jpg" alt="2-Page Spread Reader" />
+                  <img src="assets/screenshots/ss_spread_2page.jpg" alt="2-Page Spread Reader" />
                 </div>
               </div>
             </div>
 
             <!-- Panel C: Landscape 2-Page Illustrated Spread -->
             <div data-screen-panel="spread-illustrated" class="hidden w-full max-w-[540px]">
-              <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_spread_2page.jpg', 'Two-Page Illustrated Spread')">
+              <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_spread_2page.jpg', 'Two-Page Illustrated Spread')">
                 <div class="landscape-frame-screen">
-                  <img src="public/screenshots/ss_spread_2page.jpg" alt="2-Page Illustrated Spread" />
+                  <img src="assets/screenshots/ss_spread_2page.jpg" alt="2-Page Illustrated Spread" />
                 </div>
               </div>
             </div>
@@ -315,30 +315,30 @@
           <!-- Left Device Showcase (6 Cols) -->
           <div class="lg:col-span-6 flex items-center justify-center order-2 lg:order-1">
             <div data-screen-panel="toc-ln" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_toc_illust.jpg', 'Chapters & 2-Column Insert Illustrations')">
+              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', 'Chapters & 2-Column Insert Illustrations')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_toc_illust.jpg" alt="Light Novel Chapters & Illustrations" />
+                  <img src="assets/screenshots/ss_toc_illust.jpg" alt="Light Novel Chapters & Illustrations" />
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_reader_cover.jpg', 'Full-Screen Artwork Viewer')">
+              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'Full-Screen Artwork Viewer')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_reader_cover.jpg" alt="High-Res Artwork Viewer" />
+                  <img src="assets/screenshots/ss_reader_cover.jpg" alt="High-Res Artwork Viewer" />
                 </div>
               </div>
             </div>
 
             <div data-screen-panel="toc-pdf" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_toc_illust.jpg', 'PDF Chapters & Artwork Grid')">
+              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', 'PDF Chapters & Artwork Grid')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_toc_illust.jpg" alt="PDF Indexed Chapters and Artwork" />
+                  <img src="assets/screenshots/ss_toc_illust.jpg" alt="PDF Indexed Chapters and Artwork" />
                 </div>
               </div>
             </div>
 
             <div data-screen-panel="viewer-hd" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_reader_cover.jpg', 'High-Resolution Artwork Viewer')">
+              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'High-Resolution Artwork Viewer')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_reader_cover.jpg" alt="Full-Screen Artwork Viewer" />
+                  <img src="assets/screenshots/ss_reader_cover.jpg" alt="Full-Screen Artwork Viewer" />
                 </div>
               </div>
             </div>
@@ -434,22 +434,22 @@
           <!-- Right Screenshots (6 Cols) -->
           <div class="lg:col-span-6 flex items-center justify-center">
             <div data-screen-panel="lib-spine" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_library_grid.jpg', '3D Spine Bookshelf')">
+              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', '3D Spine Bookshelf')">
                 <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="public/screenshots/ss_library_grid.jpg" alt="3D Spine Bookshelf" />
+                  <img src="assets/screenshots/ss_library_grid.jpg" alt="3D Spine Bookshelf" />
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_home_dark.jpg', 'Filter & Shelves')">
+              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_home_dark.jpg', 'Filter & Shelves')">
                 <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="public/screenshots/ss_home_dark.jpg" alt="Library Filter and Shelves" />
+                  <img src="assets/screenshots/ss_home_dark.jpg" alt="Library Filter and Shelves" />
                 </div>
               </div>
             </div>
 
             <div data-screen-panel="lib-home" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_home_light.jpg', 'Home Screen')">
+              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_home_light.jpg', 'Home Screen')">
                 <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="public/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
+                  <img src="assets/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
                 </div>
               </div>
             </div>
@@ -483,22 +483,22 @@
           <!-- Left Device Preview (6 Cols) -->
           <div class="lg:col-span-6 flex items-center justify-center order-2 lg:order-1">
             <div data-screen-panel="scan-viewfinder" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_add_book.jpg', 'ISBN Barcode Scanner')">
+              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_add_book.jpg', 'ISBN Barcode Scanner')">
                 <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="public/screenshots/ss_add_book.jpg" alt="CameraX ISBN Scanner Viewfinder" />
+                  <img src="assets/screenshots/ss_add_book.jpg" alt="CameraX ISBN Scanner Viewfinder" />
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_library_grid.jpg', 'Batch ISBN Queue')">
+              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', 'Batch ISBN Queue')">
                 <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="public/screenshots/ss_library_grid.jpg" alt="Batch ISBN Queue" />
+                  <img src="assets/screenshots/ss_library_grid.jpg" alt="Batch ISBN Queue" />
                 </div>
               </div>
             </div>
 
             <div data-screen-panel="scan-batch" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_library_grid.jpg', 'Batch Scan Queue')">
+              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', 'Batch Scan Queue')">
                 <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="public/screenshots/ss_library_grid.jpg" alt="Batch Scan Queue" />
+                  <img src="assets/screenshots/ss_library_grid.jpg" alt="Batch Scan Queue" />
                 </div>
               </div>
             </div>
@@ -609,21 +609,21 @@
           <!-- Right Device Screens: Stats Heatmap, Stats Pace & Settings (5 Cols) -->
           <div class="lg:col-span-5 flex flex-col items-center justify-center gap-3">
             <div data-screen-panel="stats-pair" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[205px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_stats_heatmap.jpg', 'Statistik Baca — 6 Bulan Terakhir')">
+              <div class="phone-frame w-[155px] sm:w-[205px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_stats_heatmap.jpg', 'Statistik Baca — 6 Bulan Terakhir')">
                 <div class="phone-frame-screen aspect-[480/995]">
-                  <img src="public/screenshots/ss_stats_heatmap.jpg" alt="Statistik Baca Heatmap" />
+                  <img src="assets/screenshots/ss_stats_heatmap.jpg" alt="Statistik Baca Heatmap" />
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[195px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_stats_pace.jpg', 'Alokasi Waktu Baca & Ritme Baca')">
+              <div class="phone-frame w-[145px] sm:w-[195px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_stats_pace.jpg', 'Alokasi Waktu Baca & Ritme Baca')">
                 <div class="phone-frame-screen aspect-[480/995]">
-                  <img src="public/screenshots/ss_stats_pace.jpg" alt="Alokasi Waktu Baca" />
+                  <img src="assets/screenshots/ss_stats_pace.jpg" alt="Alokasi Waktu Baca" />
                 </div>
               </div>
             </div>
             <div data-screen-panel="settings-view" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[175px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('public/screenshots/ss_settings.jpg', 'Pengaturan & Tema')">
+              <div class="phone-frame w-[175px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_settings.jpg', 'Pengaturan & Tema')">
                 <div class="phone-frame-screen aspect-[480/995]">
-                  <img src="public/screenshots/ss_settings.jpg" alt="Pengaturan Llunevie" />
+                  <img src="assets/screenshots/ss_settings.jpg" alt="Pengaturan Llunevie" />
                 </div>
               </div>
             </div>
@@ -660,7 +660,7 @@
       <button type="button" onclick="closeScreenshotLightbox()" class="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-stone-900 text-white border border-white/20 flex items-center justify-center shadow-lg hover:scale-105 transition-transform" aria-label="Close preview">
         ✕
       </button>
-      <img id="lightboxImg" src="public/screenshots/ss_home_light.jpg" alt="App Screenshot Preview" class="max-h-[80vh] w-auto rounded-2xl shadow-2xl border border-white/15 object-contain" />
+      <img id="lightboxImg" src="assets/screenshots/ss_home_light.jpg" alt="App Screenshot Preview" class="max-h-[80vh] w-auto rounded-2xl shadow-2xl border border-white/15 object-contain" />
       <p id="lightboxCaption" class="font-mono-code text-xs text-stone-200 mt-3 text-center"></p>
     </div>
   </div>
