@@ -1,0 +1,15 @@
+{
+  "name": "llunevie-web",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Official editorial landing page for Llunevie — Native Android eReader & Light Novel Collection Manager",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static build ready for Vercel'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Llunatics/llunevie-web.git"
+  },
+  "license": "MIT"
+}
