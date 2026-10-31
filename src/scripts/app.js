@@ -342,7 +342,7 @@ async function fetchLatestGitHubRelease() {
 
     const tagName = releaseData.tag_name || "v0.2.2";
     const assets = Array.isArray(releaseData.assets) ? releaseData.assets : [];
-    const apkAsset = assets.find(a => a && typeof a.name === "string" && a.name.toLowerCase().endsWith(".apk")) || assets[0];
+    const apkAsset = assets.find(a => a && typeof a.name === "string" && a.name.toLowerCase().endsWith(".apk") && a.name.toLowerCase().includes("release")) || assets.find(a => a && typeof a.name === "string" && a.name.toLowerCase().endsWith(".apk") && !a.name.toLowerCase().includes("debug")) || assets[0];
 
     versionBadges.forEach(el => {
       el.textContent = tagName;
