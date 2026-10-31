@@ -15,10 +15,10 @@
 <body class="paper-grain selection:bg-stone-800 selection:text-stone-100">
 
   <!-- ====================================================================
-       TOP STICKY NAVIGATION BAR
+       TOP STICKY NAVIGATION BAR (Clean & Airy on Mobile + Desktop)
        ==================================================================== -->
   <header class="fixed top-0 inset-x-0 z-50 top-nav-glass">
-    <div class="max-w-[1220px] mx-auto px-3.5 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+    <div class="max-w-[1200px] mx-auto px-3.5 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
       <!-- Brand Logo -->
       <a href="#chapter-0" onclick="scrollToChapter(0); return false;" class="flex items-center gap-2.5 group text-decoration-none shrink-0">
         <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-card)] flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
@@ -31,8 +31,8 @@
           </svg>
         </div>
         <div class="flex items-baseline gap-1.5">
-          <span class="font-serif-editorial text-lg sm:text-xl tracking-tight font-medium">Llunevie</span>
-          <span data-release-version class="font-mono-code text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--badge-bg)] border border-[var(--border-soft)] text-[var(--text-secondary)]">v0.2.0</span>
+          <span class="font-serif-editorial text-[19px] sm:text-xl tracking-tight font-medium">Llunevie</span>
+          <span data-release-version class="hidden sm:inline-block font-mono-code text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--badge-bg)] border border-[var(--border-soft)] text-[var(--text-secondary)]">v0.2.2</span>
         </div>
       </a>
 
@@ -42,13 +42,21 @@
         <button type="button" data-chapter-link onclick="scrollToChapter(1)" class="segmented-pill" data-i18n="nav_reader">02 Reader</button>
         <button type="button" data-chapter-link onclick="scrollToChapter(2)" class="segmented-pill" data-i18n="nav_toc">03 Ilustrasi</button>
         <button type="button" data-chapter-link onclick="scrollToChapter(3)" class="segmented-pill" data-i18n="nav_library">04 Pustaka</button>
-        <button type="button" data-chapter-link onclick="scrollToChapter(4)" class="segmented-pill" data-i18n="nav_scanner">05 Scanner</button>
+        <button type="button" data-chapter-link onclick="scrollToChapter(4)" class="segmented-pill" data-i18n="nav_scanner">05 Impor</button>
         <button type="button" data-chapter-link onclick="scrollToChapter(5)" class="segmented-pill" data-i18n="nav_download">06 Unduh</button>
       </nav>
 
       <!-- Right Controls -->
-      <div class="flex items-center gap-1.5 sm:gap-2">
-        <!-- Reading Palette Switcher (Desktop/Tablet) -->
+      <div class="flex items-center gap-2">
+        <!-- Mobile Compact 4-Color Theme Swatches -->
+        <div class="flex md:hidden theme-dots-track" role="group" aria-label="Reading Theme">
+          <button type="button" data-theme-btn="paper" onclick="setTheme('paper')" class="theme-dot-btn active bg-[#EAE3D2] border border-stone-400" title="Paper"></button>
+          <button type="button" data-theme-btn="white" onclick="setTheme('white')" class="theme-dot-btn bg-white border border-stone-300" title="White"></button>
+          <button type="button" data-theme-btn="sepia" onclick="setTheme('sepia')" class="theme-dot-btn bg-[#DFCFAF] border border-amber-800/40" title="Sepia"></button>
+          <button type="button" data-theme-btn="black" onclick="setTheme('black')" class="theme-dot-btn bg-[#18181B] border border-stone-600" title="Black"></button>
+        </div>
+
+        <!-- Desktop Reading Palette Switcher -->
         <div class="hidden md:inline-flex segmented-track" role="group" aria-label="Reading Theme">
           <button type="button" data-theme-btn="paper" onclick="setTheme('paper')" class="segmented-pill active flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-[#EAE3D2] border border-stone-400"></span>
@@ -70,12 +78,12 @@
 
         <!-- Language Switcher (ID / EN) -->
         <div class="segmented-track" role="group" aria-label="Language">
-          <button type="button" data-lang-btn="id" onclick="setLanguage('id')" class="segmented-pill active !px-2">ID</button>
-          <button type="button" data-lang-btn="en" onclick="setLanguage('en')" class="segmented-pill !px-2">EN</button>
+          <button type="button" data-lang-btn="id" onclick="setLanguage('id')" class="segmented-pill active !px-2.5 !py-1">ID</button>
+          <button type="button" data-lang-btn="en" onclick="setLanguage('en')" class="segmented-pill !px-2.5 !py-1">EN</button>
         </div>
 
-        <!-- Direct APK Download Pill -->
-        <a data-apk-download-link href="https://github.com/Llunatics/Llunevie/releases/latest" target="_blank" rel="noopener noreferrer" class="btn-primary !py-1.5 sm:!py-2 !px-3.5 sm:!px-4 !text-xs">
+        <!-- Direct APK Download Pill (Desktop/Tablet) -->
+        <a data-apk-download-link href="https://github.com/Llunatics/Llunevie/releases/latest" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-primary !py-2 !px-4 !text-xs">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
           </svg>
@@ -91,112 +99,98 @@
     <button type="button" onclick="scrollToChapter(1)" class="rail-dot" title="02 — Reader"></button>
     <button type="button" onclick="scrollToChapter(2)" class="rail-dot" title="03 — Ilustrasi"></button>
     <button type="button" onclick="scrollToChapter(3)" class="rail-dot" title="04 — Pustaka"></button>
-    <button type="button" onclick="scrollToChapter(4)" class="rail-dot" title="05 — Scanner"></button>
+    <button type="button" onclick="scrollToChapter(4)" class="rail-dot" title="05 — Impor"></button>
     <button type="button" onclick="scrollToChapter(5)" class="rail-dot" title="06 — Unduh"></button>
   </aside>
 
   <!-- ====================================================================
        MAIN SCROLL-DRIVEN CARD DECK
        ==================================================================== -->
-  <main class="deck-stage-container pt-16 sm:pt-20">
+  <main class="deck-stage-container pt-14 sm:pt-20">
 
     <!-- ==================================================================
          CARD 01 — HERO SHOWCASE
          ================================================================== -->
     <section id="chapter-0" class="chapter-card-slot" style="z-index: 10;">
       <article class="chapter-card">
-        <!-- Card Top Metadata Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-[var(--border-soft)]">
-          <span data-i18n="hero_badge" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">APLIKASI EREADER &amp; LIGHT NOVEL ANDROID</span>
-          <div class="flex items-center gap-2 sm:gap-3 font-mono-code text-[10.5px] sm:text-[11px] text-[var(--text-secondary)]">
-            <span>EPUB</span>
-            <span>·</span>
-            <span>PDF</span>
-            <span>·</span>
-            <span>TXT</span>
-          </div>
+        <!-- Card Top Eyebrow Bar -->
+        <div class="flex items-center justify-between gap-2 pb-2.5 sm:pb-4 border-b border-[var(--border-soft)]">
+          <span data-i18n="hero_badge" class="font-mono-code text-[9.5px] sm:text-[11px] uppercase tracking-wider text-[var(--text-muted)] truncate">EREADER &amp; LIGHT NOVEL ANDROID</span>
+          <span class="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-secondary)] shrink-0">EPUB · PDF · TXT</span>
         </div>
 
         <!-- Card Main Content -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center my-auto py-4 sm:py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 items-center my-auto py-1 sm:py-5">
           <!-- Left Copy (7 Cols) -->
-          <div class="lg:col-span-7 space-y-4 sm:space-y-6">
-            <h1 data-i18n="hero_title" class="font-serif-editorial text-3xl sm:text-5xl xl:text-[54px] leading-[1.08] tracking-tight font-normal">
+          <div class="lg:col-span-7 space-y-3 sm:space-y-5">
+            <h1 data-i18n="hero_title" class="font-serif-editorial text-[26px] sm:text-5xl xl:text-[52px] leading-[1.1] tracking-tight font-normal">
               Ruang tenang untuk membaca novel dan koleksi bukumu.
             </h1>
-            <p data-i18n="hero_subtitle" class="text-sm sm:text-[16.5px] leading-relaxed text-[var(--text-secondary)] max-w-xl">
-              Baca file EPUB, PDF, dan TXT dengan nyaman di Android. Dilengkapi animasi balik halaman yang natural, indeks bab serta ilustrasi otomatis, dan rak buku pribadi.
+            <p data-i18n="hero_subtitle" class="text-[13.5px] sm:text-[16px] leading-relaxed text-[var(--text-secondary)] max-w-xl">
+              Baca file EPUB, PDF, dan TXT dengan nyaman di Android. Dilengkapi animasi balik halaman natural, daftar bab &amp; ilustrasi otomatis, serta rak buku pribadi.
             </p>
 
             <!-- Primary CTA Row -->
-            <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-1">
-              <a data-apk-download-link href="https://github.com/Llunatics/Llunevie/releases/latest" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <div class="flex items-center gap-2.5 sm:gap-3 pt-0.5">
+              <a data-apk-download-link href="https://github.com/Llunatics/Llunevie/releases/latest" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 sm:flex-initial">
                 <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
                 </svg>
                 <span data-i18n="hero_cta_apk">Unduh APK</span>
-                <span data-release-version class="font-mono-code text-[11px] opacity-80 pl-1.5 border-l border-current/25">v0.2.0</span>
+                <span data-release-version class="font-mono-code text-[11px] opacity-80 pl-1.5 border-l border-current/25">v0.2.2</span>
               </a>
 
-              <a href="https://github.com/Llunatics/Llunevie" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <a href="https://github.com/Llunatics/Llunevie" target="_blank" rel="noopener noreferrer" class="btn-secondary !px-4 sm:!px-5">
                 <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                 </svg>
                 <span data-i18n="hero_cta_github">GitHub</span>
               </a>
             </div>
-
-            <!-- Mobile Theme Switcher -->
-            <div class="flex md:hidden items-center gap-2 pt-1">
-              <div class="segmented-track">
-                <button type="button" data-theme-btn="paper" onclick="setTheme('paper')" class="segmented-pill active">Paper</button>
-                <button type="button" data-theme-btn="white" onclick="setTheme('white')" class="segmented-pill">White</button>
-                <button type="button" data-theme-btn="sepia" onclick="setTheme('sepia')" class="segmented-pill">Sepia</button>
-                <button type="button" data-theme-btn="black" onclick="setTheme('black')" class="segmented-pill">Black</button>
-              </div>
-            </div>
           </div>
 
           <!-- Right Interactive 3-Phone Stage (5 Cols) -->
-          <div class="lg:col-span-5 flex flex-col items-center">
-            <div class="hero-phones-stage">
-              <!-- Phone 0: Home Screen -->
-              <div class="hero-phone-slot pos-center" onclick="selectHeroPhone(0)">
-                <div class="phone-frame w-full h-full">
-                  <div class="phone-frame-screen">
-                    <img src="assets/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
+          <div class="lg:col-span-5">
+            <div class="device-showcase-well">
+              <div class="hero-phones-stage">
+                <!-- Phone 0: Home Screen Light -->
+                <div class="hero-phone-slot pos-center" onclick="selectHeroPhone(0)">
+                  <div class="phone-frame w-full">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Phone 1: 1-Page Light Novel Reader -->
+                <div class="hero-phone-slot pos-right" onclick="selectHeroPhone(1)">
+                  <div class="phone-frame w-full">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_reader_cover.jpg" alt="Llunevie Light Novel Reader" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Phone 2: Home Dark Theme -->
+                <div class="hero-phone-slot pos-left" onclick="selectHeroPhone(2)">
+                  <div class="phone-frame w-full">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_home_dark.jpg" alt="Llunevie Dark Mode Home" />
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Phone 1: 1-Page Light Novel Reader -->
-              <div class="hero-phone-slot pos-right" onclick="selectHeroPhone(1)">
-                <div class="phone-frame w-full h-full">
-                  <div class="phone-frame-screen">
-                    <img src="assets/screenshots/ss_reader_cover.jpg" alt="Llunevie Light Novel Reader" />
-                  </div>
-                </div>
-              </div>
-              <!-- Phone 2: Home Dark Theme -->
-              <div class="hero-phone-slot pos-left" onclick="selectHeroPhone(2)">
-                <div class="phone-frame w-full h-full">
-                  <div class="phone-frame-screen">
-                    <img src="assets/screenshots/ss_home_dark.jpg" alt="Llunevie Dark Mode Home" />
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Interactive Screen Selector -->
-            <div class="segmented-track mt-2 sm:mt-3">
-              <button type="button" data-hero-tab onclick="selectHeroPhone(0)" class="segmented-pill active" data-i18n="screen_home_label">Beranda</button>
-              <button type="button" data-hero-tab onclick="selectHeroPhone(1)" class="segmented-pill" data-i18n="screen_reader_label">Reader</button>
-              <button type="button" data-hero-tab onclick="selectHeroPhone(2)" class="segmented-pill" data-i18n="screen_toc_label">Daftar Bab</button>
+              <!-- Interactive Screen Selector -->
+              <div class="segmented-track">
+                <button type="button" data-hero-tab onclick="selectHeroPhone(0)" class="segmented-pill active" data-i18n="screen_home_label">Terang</button>
+                <button type="button" data-hero-tab onclick="selectHeroPhone(1)" class="segmented-pill" data-i18n="screen_reader_label">Reader</button>
+                <button type="button" data-hero-tab onclick="selectHeroPhone(2)" class="segmented-pill" data-i18n="screen_toc_label">Gelap</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Card Bottom Footer -->
-        <div class="flex items-center justify-end pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
+        <!-- Card Bottom Footer (Desktop) -->
+        <div class="hidden sm:flex items-center justify-end pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
           <button type="button" onclick="scrollToChapter(1)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline flex items-center gap-1.5">
             <span>02 / READER</span>
             <span>↓</span>
@@ -210,85 +204,97 @@
          ================================================================== -->
     <section id="chapter-1" class="chapter-card-slot" style="z-index: 20;">
       <article class="chapter-card">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-[var(--border-soft)]">
+        <div class="flex items-center justify-between gap-2 pb-2.5 sm:pb-4 border-b border-[var(--border-soft)]">
           <span data-i18n="ch2_tag" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">02 · PENGALAMAN BACA</span>
-          <div class="segmented-track">
-            <button type="button" data-screen-tab="ln-single" onclick="switchChapterScreen('chapter-1', 'ln-single')" class="segmented-pill active">1 Halaman</button>
-            <button type="button" data-screen-tab="spread-2p" onclick="switchChapterScreen('chapter-1', 'spread-2p')" class="segmented-pill">2 Halaman</button>
-            <button type="button" data-screen-tab="spread-illustrated" onclick="switchChapterScreen('chapter-1', 'spread-illustrated')" class="segmented-pill">Ilustrasi 2 Hal</button>
-          </div>
+          <span class="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-muted)]">02 / 06</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-3 sm:py-6">
-          <!-- Left Explanation (6 Cols) -->
-          <div class="lg:col-span-6 space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5 lg:gap-x-8 lg:gap-y-4 items-center my-auto py-1 sm:py-5">
+          <!-- 1. Headline & Lead (Top on Mobile, Left-Top on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-1 lg:row-start-1 self-end space-y-1.5 sm:space-y-2">
             <h2 data-i18n="ch2_title" class="font-serif-editorial text-2xl sm:text-4xl leading-[1.12] font-normal">
               Baca sesuai gayamu.
             </h2>
-            <p data-i18n="ch2_desc" class="text-sm sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
+            <p data-i18n="ch2_desc" class="text-[13.5px] sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
               Pilih mode balik halaman (Flipbook), bentangan 2 halaman landscape, gulir vertikal, atau webtoon.
             </p>
+          </div>
 
-            <div class="space-y-2.5 pt-1">
-              <div class="spec-card">
-                <h3 data-i18n="ch2_f1_title" class="text-xs sm:text-sm font-semibold">Flipbook Natural &amp; Mode 2 Halaman</h3>
-                <p data-i18n="ch2_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Transisi lipatan kertas, geser (slide), dan pudar (fade) yang halus. Tersedia tampilan 2 halaman penuh dengan kontrol di sisi kiri.
-                </p>
+          <!-- 2. Interactive Device Showcase (Middle on Mobile, Right Column on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 self-center">
+            <div class="device-showcase-well">
+              <div class="segmented-track">
+                <button type="button" data-screen-tab="ln-single" onclick="switchChapterScreen('chapter-1', 'ln-single')" class="segmented-pill active" data-i18n="ch2_tab_1">1 Halaman</button>
+                <button type="button" data-screen-tab="spread-2p" onclick="switchChapterScreen('chapter-1', 'spread-2p')" class="segmented-pill" data-i18n="ch2_tab_2">2 Halaman Landscape</button>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch2_f2_title" class="text-xs sm:text-sm font-semibold">15 Font Bawaan &amp; Pengaturan Bersih</h3>
-                <p data-i18n="ch2_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Atur ukuran teks, ketebalan, spasi, indentasi, dan margin. Saat slider digeser, menu pengaturan otomatis transparan agar perubahan teks langsung terlihat.
-                </p>
+
+              <!-- Panel A: Symmetrical Equal-Height 2-Phone Pair -->
+              <div data-screen-panel="ln-single" class="phone-pair-stage">
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'Mode Baca 1 Halaman')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_reader_cover.jpg" alt="1-Page Light Novel Reader" />
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', 'Daftar Bab & Ilustrasi')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_toc_illust.jpg" alt="Chapters and Illustrations" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch2_f3_title" class="text-xs sm:text-sm font-semibold">Highlight, Catatan &amp; Bookmark</h3>
-                <p data-i18n="ch2_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Tahan teks untuk menandai kalimat dengan 4 warna pastel, tambahkan catatan, atau simpan halaman lewat tombol bookmark.
-                </p>
+
+              <!-- Panel B: Landscape 2-Page Spread -->
+              <div data-screen-panel="spread-2p" class="hidden w-full max-w-[520px] py-2 sm:py-5">
+                <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_spread_2page.jpg', 'Mode 2 Halaman Landscape')">
+                  <div class="landscape-frame-screen">
+                    <img src="assets/screenshots/ss_spread_2page.jpg" alt="2-Page Spread Reader" />
+                  </div>
+                </div>
               </div>
+
+              <span data-i18n="tap_to_zoom" class="font-mono-code text-[10px] sm:text-[10.5px] text-[var(--text-muted)]">Ketuk layar HP untuk memperbesar</span>
             </div>
           </div>
 
-          <!-- Right Interactive Device Preview (6 Cols) -->
-          <div class="lg:col-span-6 flex flex-col items-center justify-center">
-            <!-- Panel A: 1-Page Light Novel Reader + Illustrated Page Pair -->
-            <div data-screen-panel="ln-single" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', '1-Page Light Novel Reader')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_reader_cover.jpg" alt="1-Page Light Novel Reader" />
+          <!-- 3. Feature List (Bottom on Mobile, Left-Bottom on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-1 lg:row-start-2 self-start">
+            <div class="feature-stack">
+              <div class="feature-row">
+                <span class="feature-num">01</span>
+                <div>
+                  <h3 data-i18n="ch2_f1_title" class="text-[13px] sm:text-sm font-semibold">Flipbook Natural &amp; Mode 2 Halaman</h3>
+                  <p data-i18n="ch2_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Transisi lipatan kertas, slide, dan fade yang mulus, lengkap dengan mode 2 halaman layar penuh.
+                  </p>
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', '1-Page Illustrated Reader')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_toc_illust.jpg" alt="Illustrated Page Reader" />
+              <div class="feature-row">
+                <span class="feature-num">02</span>
+                <div>
+                  <h3 data-i18n="ch2_f2_title" class="text-[13px] sm:text-sm font-semibold">15 Font Bawaan &amp; Pratinjau Langsung</h3>
+                  <p data-i18n="ch2_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Atur ukuran teks, spasi, dan margin. Panel otomatis transparan saat slider digeser.
+                  </p>
                 </div>
               </div>
-            </div>
-
-            <!-- Panel B: Landscape 2-Page Spread -->
-            <div data-screen-panel="spread-2p" class="hidden w-full max-w-[540px]">
-              <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_spread_2page.jpg', 'Two-Page Book Spread')">
-                <div class="landscape-frame-screen">
-                  <img src="assets/screenshots/ss_spread_2page.jpg" alt="2-Page Spread Reader" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel C: Landscape 2-Page Illustrated Spread -->
-            <div data-screen-panel="spread-illustrated" class="hidden w-full max-w-[540px]">
-              <div class="landscape-frame w-full cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_spread_2page.jpg', 'Two-Page Illustrated Spread')">
-                <div class="landscape-frame-screen">
-                  <img src="assets/screenshots/ss_spread_2page.jpg" alt="2-Page Illustrated Spread" />
+              <div class="feature-row">
+                <span class="feature-num">03</span>
+                <div>
+                  <h3 data-i18n="ch2_f3_title" class="text-[13px] sm:text-sm font-semibold">Highlight, Catatan &amp; Bookmark</h3>
+                  <p data-i18n="ch2_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Tahan teks untuk menandai kalimat dengan 4 warna pastel, tambah catatan, atau simpan halaman.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
-          <span class="font-mono-code text-[10px] sm:text-[11px]">PAGE TURN · TWO PAGES · VERTICAL · WEBTOON</span>
+        <div class="hidden sm:flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
+          <span class="font-mono-code text-[11px]">PAGE TURN · TWO PAGES · VERTICAL · WEBTOON</span>
           <button type="button" onclick="scrollToChapter(2)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline flex items-center gap-1.5">
             <span>03 / ARTWORK</span>
             <span>↓</span>
@@ -302,82 +308,97 @@
          ================================================================== -->
     <section id="chapter-2" class="chapter-card-slot" style="z-index: 30;">
       <article class="chapter-card">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-[var(--border-soft)]">
+        <div class="flex items-center justify-between gap-2 pb-2.5 sm:pb-4 border-b border-[var(--border-soft)]">
           <span data-i18n="ch3_tag" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">03 · BAB &amp; ILUSTRASI</span>
-          <div class="segmented-track">
-            <button type="button" data-screen-tab="toc-ln" onclick="switchChapterScreen('chapter-2', 'toc-ln')" class="segmented-pill active">Light Novel</button>
-            <button type="button" data-screen-tab="toc-pdf" onclick="switchChapterScreen('chapter-2', 'toc-pdf')" class="segmented-pill">PDF Bab</button>
-            <button type="button" data-screen-tab="viewer-hd" onclick="switchChapterScreen('chapter-2', 'viewer-hd')" class="segmented-pill">Viewer HD</button>
-          </div>
+          <span class="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-muted)]">03 / 06</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-3 sm:py-6">
-          <!-- Left Device Showcase (6 Cols) -->
-          <div class="lg:col-span-6 flex items-center justify-center order-2 lg:order-1">
-            <div data-screen-panel="toc-ln" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', 'Chapters & 2-Column Insert Illustrations')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_toc_illust.jpg" alt="Light Novel Chapters & Illustrations" />
-                </div>
-              </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'Full-Screen Artwork Viewer')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_reader_cover.jpg" alt="High-Res Artwork Viewer" />
-                </div>
-              </div>
-            </div>
-
-            <div data-screen-panel="toc-pdf" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', 'PDF Chapters & Artwork Grid')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_toc_illust.jpg" alt="PDF Indexed Chapters and Artwork" />
-                </div>
-              </div>
-            </div>
-
-            <div data-screen-panel="viewer-hd" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'High-Resolution Artwork Viewer')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_reader_cover.jpg" alt="Full-Screen Artwork Viewer" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Feature Details (6 Cols) -->
-          <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5 lg:gap-x-8 lg:gap-y-4 items-center my-auto py-1 sm:py-5">
+          <!-- 1. Headline & Lead (Top on Mobile, Right-Top on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-7 lg:row-start-1 self-end space-y-1.5 sm:space-y-2">
             <h2 data-i18n="ch3_title" class="font-serif-editorial text-2xl sm:text-4xl leading-[1.12] font-normal">
               Daftar bab dan ilustrasi tersusun otomatis.
             </h2>
-            <p data-i18n="ch3_desc" class="text-sm sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
-              Cocok untuk Light Novel dan buku bergambar. Llunevie mengenali struktur bab sekaligus mengumpulkan gambar sisipan ke galeri khusus.
+            <p data-i18n="ch3_desc" class="text-[13.5px] sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
+              Dirancang untuk Light Novel dan buku bergambar. Struktur bab dan gambar sisipan langsung dikelompokkan dengan rapi.
             </p>
+          </div>
 
-            <div class="space-y-2.5 pt-1">
-              <div class="spec-card">
-                <h3 data-i18n="ch3_f1_title" class="text-xs sm:text-sm font-semibold">Deteksi Daftar Bab Otomatis</h3>
-                <p data-i18n="ch3_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Membaca daftar bab dari EPUB, bookmark PDF, halaman Daftar Isi, hingga judul bab di bagian atas dan bawah halaman.
-                </p>
+          <!-- 2. Interactive Device Showcase (Middle on Mobile, Left Column on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:row-span-2 self-center">
+            <div class="device-showcase-well">
+              <div class="segmented-track">
+                <button type="button" data-screen-tab="toc-ln" onclick="switchChapterScreen('chapter-2', 'toc-ln')" class="segmented-pill active" data-i18n="ch3_tab_1">Bab &amp; Galeri</button>
+                <button type="button" data-screen-tab="viewer-hd" onclick="switchChapterScreen('chapter-2', 'viewer-hd')" class="segmented-pill" data-i18n="ch3_tab_2">Tampilan Sampul</button>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch3_f2_title" class="text-xs sm:text-sm font-semibold">Galeri Ilustrasi Warna &amp; Sketsa</h3>
-                <p data-i18n="ch3_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Memisahkan gambar berwarna maupun sketsa hitam-putih dari halaman teks biasa, lalu menampilkannya dalam galeri 2 kolom di bawah daftar bab.
-                </p>
+
+              <div data-screen-panel="toc-ln" class="phone-pair-stage">
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_toc_illust.jpg', 'Daftar Bab & Galeri Ilustrasi 2 Kolom')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_toc_illust.jpg" alt="Light Novel Chapters & Illustrations" />
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'Penampil Ilustrasi Resolusi Penuh')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_reader_cover.jpg" alt="High-Res Artwork Viewer" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch3_f3_title" class="text-xs sm:text-sm font-semibold">Tampilan Gambar Resolusi Penuh</h3>
-                <p data-i18n="ch3_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Buka ilustrasi dalam resolusi tajam lengkap dengan fitur cubit untuk memperbesar (pinch-to-zoom).
-                </p>
+
+              <div data-screen-panel="viewer-hd" class="hidden flex items-center justify-center w-full">
+                <div class="phone-single-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_reader_cover.jpg', 'Tampilan Ilustrasi Penuh')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_reader_cover.jpg" alt="Full-Screen Artwork Viewer" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <span data-i18n="tap_to_zoom" class="font-mono-code text-[10px] sm:text-[10.5px] text-[var(--text-muted)]">Ketuk layar HP untuk memperbesar</span>
+            </div>
+          </div>
+
+          <!-- 3. Feature List (Bottom on Mobile, Right-Bottom on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-7 lg:row-start-2 self-start">
+            <div class="feature-stack">
+              <div class="feature-row">
+                <span class="feature-num">01</span>
+                <div>
+                  <h3 data-i18n="ch3_f1_title" class="text-[13px] sm:text-sm font-semibold">Deteksi Daftar Bab Otomatis</h3>
+                  <p data-i18n="ch3_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Membaca bab dari navigasi EPUB, bookmark PDF, Daftar Isi, hingga judul di atas/bawah halaman.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-num">02</span>
+                <div>
+                  <h3 data-i18n="ch3_f2_title" class="text-[13px] sm:text-sm font-semibold">Galeri Ilustrasi Warna &amp; Sketsa</h3>
+                  <p data-i18n="ch3_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Memisahkan ilustrasi warna dan sketsa hitam-putih ke galeri 2 kolom di bawah daftar bab.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-num">03</span>
+                <div>
+                  <h3 data-i18n="ch3_f3_title" class="text-[13px] sm:text-sm font-semibold">Penampil Gambar Resolusi Penuh</h3>
+                  <p data-i18n="ch3_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Buka ilustrasi dalam resolusi tajam lengkap dengan fitur cubit untuk memperbesar.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
-          <span class="font-mono-code text-[10px] sm:text-[11px]">TOC &amp; INSERT ILLUSTRATIONS</span>
+        <div class="hidden sm:flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
+          <span class="font-mono-code text-[11px]">TOC &amp; INSERT ILLUSTRATIONS</span>
           <button type="button" onclick="scrollToChapter(3)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline flex items-center gap-1.5">
             <span>04 / LIBRARY</span>
             <span>↓</span>
@@ -391,75 +412,99 @@
          ================================================================== -->
     <section id="chapter-3" class="chapter-card-slot" style="z-index: 40;">
       <article class="chapter-card">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-[var(--border-soft)]">
+        <div class="flex items-center justify-between gap-2 pb-2.5 sm:pb-4 border-b border-[var(--border-soft)]">
           <span data-i18n="ch4_tag" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">04 · PUSTAKA PRIBADI</span>
-          <div class="segmented-track">
-            <button type="button" data-screen-tab="lib-spine" onclick="switchChapterScreen('chapter-3', 'lib-spine')" class="segmented-pill active">3D Spine &amp; Filter</button>
-            <button type="button" data-screen-tab="lib-home" onclick="switchChapterScreen('chapter-3', 'lib-home')" class="segmented-pill">Beranda</button>
-          </div>
+          <span class="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-muted)]">04 / 06</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-3 sm:py-6">
-          <!-- Left Copy (6 Cols) -->
-          <div class="lg:col-span-6 space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5 lg:gap-x-8 lg:gap-y-4 items-center my-auto py-1 sm:py-5">
+          <!-- 1. Headline & Lead (Top on Mobile, Left-Top on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-1 lg:row-start-1 self-end space-y-1.5 sm:space-y-2">
             <h2 data-i18n="ch4_title" class="font-serif-editorial text-2xl sm:text-4xl leading-[1.12] font-normal">
               Koleksi digital dan buku fisik dalam satu rak.
             </h2>
-            <p data-i18n="ch4_desc" class="text-sm sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
-              Kelola file eReader dan catatan koleksi buku fisikmu dengan rapi tanpa perlu akun.
+            <p data-i18n="ch4_desc" class="text-[13.5px] sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
+              Kelola file bacaan dan catatan koleksi buku fisikmu dengan rapi tanpa perlu akun.
             </p>
+          </div>
 
-            <div class="space-y-2.5 pt-1">
-              <div class="spec-card">
-                <h3 data-i18n="ch4_f1_title" class="text-xs sm:text-sm font-semibold">Rak 3D Spine Sesuai Warna Sampul</h3>
-                <p data-i18n="ch4_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Warna punggung buku otomatis menyesuaikan warna sampul dan ukuran tingginya mengikuti dimensi buku.
-                </p>
+          <!-- 2. Interactive Device Showcase (Middle on Mobile, Right Column on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 self-center">
+            <div class="device-showcase-well">
+              <div class="segmented-track">
+                <button type="button" data-screen-tab="lib-spine" onclick="switchChapterScreen('chapter-3', 'lib-spine')" class="segmented-pill active" data-i18n="ch4_tab_1">Rak &amp; Mode Gelap</button>
+                <button type="button" data-screen-tab="lib-home" onclick="switchChapterScreen('chapter-3', 'lib-home')" class="segmented-pill" data-i18n="ch4_tab_2">Beranda Terang</button>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch4_f2_title" class="text-xs sm:text-sm font-semibold">Folder Pantauan Otomatis (Llunevie/Books)</h3>
-                <p data-i18n="ch4_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Taruh file EPUB, PDF, atau TXT baru ke dalam folder Llunevie/Books dan buku langsung masuk ke rak secara otomatis.
-                </p>
+
+              <div data-screen-panel="lib-spine" class="phone-pair-stage">
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', 'Pustaka Grid & Filter')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_library_grid.jpg" alt="Library Grid View" />
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_home_dark.jpg', 'Beranda Mode Gelap')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_home_dark.jpg" alt="Dark Mode Home" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch4_f3_title" class="text-xs sm:text-sm font-semibold">4 Tampilan Rak &amp; Filter Ringkas</h3>
-                <p data-i18n="ch4_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Lihat koleksi dalam mode 3D Spine, Grid Sampul (2–5 buku per baris), Sampul Penuh, atau Daftar.
-                </p>
+
+              <div data-screen-panel="lib-home" class="hidden flex items-center justify-center w-full">
+                <div class="phone-single-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_home_light.jpg', 'Beranda Mode Terang')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <span data-i18n="tap_to_zoom" class="font-mono-code text-[10px] sm:text-[10.5px] text-[var(--text-muted)]">Ketuk layar HP untuk memperbesar</span>
             </div>
           </div>
 
-          <!-- Right Screenshots (6 Cols) -->
-          <div class="lg:col-span-6 flex items-center justify-center">
-            <div data-screen-panel="lib-spine" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', '3D Spine Bookshelf')">
-                <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="assets/screenshots/ss_library_grid.jpg" alt="3D Spine Bookshelf" />
+          <!-- 3. Feature List (Bottom on Mobile, Left-Bottom on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-1 lg:row-start-2 self-start">
+            <div class="feature-stack">
+              <div class="feature-row">
+                <span class="feature-num">01</span>
+                <div>
+                  <h3 data-i18n="ch4_f1_title" class="text-[13px] sm:text-sm font-semibold">Tampilan 3D Spine &amp; Grid Sampul</h3>
+                  <p data-i18n="ch4_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Lihat koleksi dalam mode 3D Spine, Grid Sampul (2–5 kolom), Sampul Penuh, atau Daftar.
+                  </p>
                 </div>
               </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_home_dark.jpg', 'Filter & Shelves')">
-                <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="assets/screenshots/ss_home_dark.jpg" alt="Library Filter and Shelves" />
+              <div class="feature-row">
+                <span class="feature-num">02</span>
+                <div>
+                  <h3 data-i18n="ch4_f2_title" class="text-[13px] sm:text-sm font-semibold">Folder Pantauan Otomatis (Llunevie/Books)</h3>
+                  <p data-i18n="ch4_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Taruh file EPUB, PDF, atau TXT baru ke folder Llunevie/Books agar otomatis masuk ke rak.
+                  </p>
                 </div>
               </div>
-            </div>
-
-            <div data-screen-panel="lib-home" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_home_light.jpg', 'Home Screen')">
-                <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="assets/screenshots/ss_home_light.jpg" alt="Llunevie Home Screen" />
+              <div class="feature-row">
+                <span class="feature-num">03</span>
+                <div>
+                  <h3 data-i18n="ch4_f3_title" class="text-[13px] sm:text-sm font-semibold">Filter Cepat &amp; Rak Kustom</h3>
+                  <p data-i18n="ch4_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Kelompokkan buku berdasarkan status baca, format file, atau kategori buatanmu.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
-          <span class="font-mono-code text-[10px] sm:text-[11px]">SPINE · GRID · COVER · LIST</span>
+        <div class="hidden sm:flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
+          <span class="font-mono-code text-[11px]">SPINE · GRID · COVER · LIST</span>
           <button type="button" onclick="scrollToChapter(4)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline flex items-center gap-1.5">
-            <span>05 / SCANNER</span>
+            <span>05 / IMPORT</span>
             <span>↓</span>
           </button>
         </div>
@@ -467,77 +512,101 @@
     </section>
 
     <!-- ==================================================================
-         CARD 05 — SEARCH & ISBN SCANNER
+         CARD 05 — IMPORT & ISBN SCANNER
          ================================================================== -->
     <section id="chapter-4" class="chapter-card-slot" style="z-index: 50;">
       <article class="chapter-card">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-[var(--border-soft)]">
-          <span data-i18n="ch5_tag" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">05 · PENCARIAN &amp; SCANNER ISBN</span>
-          <div class="segmented-track">
-            <button type="button" data-screen-tab="scan-viewfinder" onclick="switchChapterScreen('chapter-4', 'scan-viewfinder')" class="segmented-pill active">Single &amp; Batch</button>
-            <button type="button" data-screen-tab="scan-batch" onclick="switchChapterScreen('chapter-4', 'scan-batch')" class="segmented-pill">Antrean Batch</button>
-          </div>
+        <div class="flex items-center justify-between gap-2 pb-2.5 sm:pb-4 border-b border-[var(--border-soft)]">
+          <span data-i18n="ch5_tag" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">05 · IMPOR &amp; SCANNER ISBN</span>
+          <span class="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-muted)]">05 / 06</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-3 sm:py-6">
-          <!-- Left Device Preview (6 Cols) -->
-          <div class="lg:col-span-6 flex items-center justify-center order-2 lg:order-1">
-            <div data-screen-panel="scan-viewfinder" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_add_book.jpg', 'ISBN Barcode Scanner')">
-                <div class="phone-frame-screen aspect-[450/937]">
-                  <img src="assets/screenshots/ss_add_book.jpg" alt="CameraX ISBN Scanner Viewfinder" />
-                </div>
-              </div>
-              <div class="phone-frame w-[145px] sm:w-[200px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', 'Batch ISBN Queue')">
-                <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="assets/screenshots/ss_library_grid.jpg" alt="Batch ISBN Queue" />
-                </div>
-              </div>
-            </div>
-
-            <div data-screen-panel="scan-batch" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[180px] sm:w-[225px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', 'Batch Scan Queue')">
-                <div class="phone-frame-screen aspect-[460/960]">
-                  <img src="assets/screenshots/ss_library_grid.jpg" alt="Batch Scan Queue" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Feature Details (6 Cols) -->
-          <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5 lg:gap-x-8 lg:gap-y-4 items-center my-auto py-1 sm:py-5">
+          <!-- 1. Headline & Lead (Top on Mobile, Right-Top on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-7 lg:row-start-1 self-end space-y-1.5 sm:space-y-2">
             <h2 data-i18n="ch5_title" class="font-serif-editorial text-2xl sm:text-4xl leading-[1.12] font-normal">
-              Tambah buku lewat pencarian atau kamera.
+              Tambah buku lewat file, pencarian, atau kamera.
             </h2>
-            <p data-i18n="ch5_desc" class="text-sm sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
-              Cari judul buku dari berbagai katalog sekaligus atau pindai barcode ISBN di sampul belakang buku fisik.
+            <p data-i18n="ch5_desc" class="text-[13.5px] sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
+              Impor file dari memori HP, cari di katalog online sekaligus, atau pindai barcode ISBN buku fisik.
             </p>
+          </div>
 
-            <div class="space-y-2.5 pt-1">
-              <div class="spec-card">
-                <h3 data-i18n="ch5_f1_title" class="text-xs sm:text-sm font-semibold">Pencarian Katalog Paralel</h3>
-                <p data-i18n="ch5_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Mengambil info buku dan gambar sampul dari Open Library, Google Books, dan MyAnimeList (Jikan) secara bersamaan.
-                </p>
+          <!-- 2. Interactive Device Showcase (Middle on Mobile, Left Column on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:row-span-2 self-center">
+            <div class="device-showcase-well">
+              <div class="segmented-track">
+                <button type="button" data-screen-tab="scan-viewfinder" onclick="switchChapterScreen('chapter-4', 'scan-viewfinder')" class="segmented-pill active" data-i18n="ch5_tab_1">Tambah &amp; Rak</button>
+                <button type="button" data-screen-tab="scan-batch" onclick="switchChapterScreen('chapter-4', 'scan-batch')" class="segmented-pill" data-i18n="ch5_tab_2">Form Metadata</button>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch5_f2_title" class="text-xs sm:text-sm font-semibold">Single Scan &amp; Batch Scan</h3>
-                <p data-i18n="ch5_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Pindai satu buku langsung ke rak pilihanmu, atau gunakan Batch Scan untuk memindai banyak buku beruntun.
-                </p>
+
+              <div data-screen-panel="scan-viewfinder" class="phone-pair-stage">
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_add_book.jpg', 'Tambah Buku & Atur Metadata')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_add_book.jpg" alt="Add to Library Screen" />
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_library_grid.jpg', 'Koleksi Rak Buku')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_library_grid.jpg" alt="Library Grid" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch5_f3_title" class="text-xs sm:text-sm font-semibold">Input Manual Jika ISBN Belum Terdaftar</h3>
-                <p data-i18n="ch5_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Jika ada ISBN buku yang belum ditemukan di katalog online, kamu bisa langsung mengisi detailnya secara manual.
-                </p>
+
+              <div data-screen-panel="scan-batch" class="hidden flex items-center justify-center w-full">
+                <div class="phone-single-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_add_book.jpg', 'Form Tambah Buku')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_add_book.jpg" alt="Add Book Form" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <span data-i18n="tap_to_zoom" class="font-mono-code text-[10px] sm:text-[10.5px] text-[var(--text-muted)]">Ketuk layar HP untuk memperbesar</span>
+            </div>
+          </div>
+
+          <!-- 3. Feature List (Bottom on Mobile, Right-Bottom on Desktop) -->
+          <div class="lg:col-span-6 lg:col-start-7 lg:row-start-2 self-start">
+            <div class="feature-stack">
+              <div class="feature-row">
+                <span class="feature-num">01</span>
+                <div>
+                  <h3 data-i18n="ch5_f1_title" class="text-[13px] sm:text-sm font-semibold">Pencarian Katalog Paralel</h3>
+                  <p data-i18n="ch5_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Mengambil info buku dan sampul dari Open Library, Google Books, dan MyAnimeList sekaligus.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-num">02</span>
+                <div>
+                  <h3 data-i18n="ch5_f2_title" class="text-[13px] sm:text-sm font-semibold">Single Scan &amp; Batch Scan ISBN</h3>
+                  <p data-i18n="ch5_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Pindai satu buku langsung ke rak, atau gunakan Batch Scan untuk banyak buku beruntun.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-num">03</span>
+                <div>
+                  <h3 data-i18n="ch5_f3_title" class="text-[13px] sm:text-sm font-semibold">Atur Metadata &amp; Gambar Sampul</h3>
+                  <p data-i18n="ch5_f3_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Lengkapi judul, penulis, seri, atau pilih gambar sampul sendiri dari galeri HP.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
-          <span class="font-mono-code text-[10px] sm:text-[11px]">OPEN LIBRARY · GOOGLE BOOKS · MYANIMELIST</span>
+        <div class="hidden sm:flex items-center justify-between pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
+          <span class="font-mono-code text-[11px]">OPEN LIBRARY · GOOGLE BOOKS · MYANIMELIST</span>
           <button type="button" onclick="scrollToChapter(5)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline flex items-center gap-1.5">
             <span>06 / DOWNLOAD</span>
             <span>↓</span>
@@ -551,45 +620,93 @@
          ================================================================== -->
     <section id="chapter-5" class="chapter-card-slot" style="z-index: 60;">
       <article class="chapter-card">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-[var(--border-soft)]">
+        <div class="flex items-center justify-between gap-2 pb-2.5 sm:pb-4 border-b border-[var(--border-soft)]">
           <span data-i18n="ch6_tag" class="font-mono-code text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-muted)]">06 · PRIVASI &amp; UNDUHAN</span>
-          <span data-release-size class="font-mono-code text-[10.5px] sm:text-[11px] text-[var(--text-secondary)]">ANDROID 8.0+ · APK</span>
+          <span data-release-size class="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-secondary)]">ANDROID 8.0+ · APK</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-3 sm:py-6">
-          <!-- Left Copy & Download Card (7 Cols) -->
-          <div class="lg:col-span-7 space-y-4 sm:space-y-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5 lg:gap-x-8 lg:gap-y-4 items-center my-auto py-1 sm:py-5">
+          <!-- 1. Headline & Lead (Top on Mobile, Left-Top on Desktop) -->
+          <div class="lg:col-span-7 lg:col-start-1 lg:row-start-1 self-end space-y-1.5 sm:space-y-2">
             <h2 data-i18n="ch6_title" class="font-serif-editorial text-2xl sm:text-4xl leading-[1.12] font-normal">
               Semua data tersimpan di ponselmu.
             </h2>
-            <p data-i18n="ch6_desc" class="text-sm sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
-              Tanpa login, tanpa iklan, tanpa pelacakan. Riwayat waktu baca, streak, highlight, dan catatan disimpan sepenuhnya di memori perangkat.
+            <p data-i18n="ch6_desc" class="text-[13.5px] sm:text-[15px] leading-relaxed text-[var(--text-secondary)]">
+              Tanpa login, tanpa iklan, tanpa pelacakan. Riwayat waktu baca, streak, highlight, dan catatan tersimpan di perangkatmu.
             </p>
+          </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-              <div class="spec-card">
-                <h3 data-i18n="ch6_f1_title" class="text-xs sm:text-sm font-semibold">Catatan Waktu Baca 6 Bulan</h3>
-                <p data-i18n="ch6_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Lihat durasi baca harian, rekor hari beruntun, kecepatan baca, dan daftar buku yang paling sering kamu baca.
-                </p>
+          <!-- 2. Interactive Device Showcase (Middle on Mobile, Right Column on Desktop) -->
+          <div class="lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 self-center">
+            <div class="device-showcase-well">
+              <div class="segmented-track">
+                <button type="button" data-screen-tab="stats-pair" onclick="switchChapterScreen('chapter-5', 'stats-pair')" class="segmented-pill active" data-i18n="ch6_tab_1">Statistik Baca</button>
+                <button type="button" data-screen-tab="settings-view" onclick="switchChapterScreen('chapter-5', 'settings-view')" class="segmented-pill" data-i18n="ch6_tab_2">Pengaturan</button>
               </div>
-              <div class="spec-card">
-                <h3 data-i18n="ch6_f2_title" class="text-xs sm:text-sm font-semibold">4 Tema Baca + Ikuti Mode HP</h3>
-                <p data-i18n="ch6_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-1">
-                  Tersedia tema Paper, White, Sepia, dan Black (termasuk mode hitam pekat AMOLED) atau otomatis mengikuti tema terang/gelap ponsel.
-                </p>
+
+              <div data-screen-panel="stats-pair" class="phone-pair-stage">
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_stats_heatmap.jpg', 'Statistik Baca & Aktivitas')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_stats_heatmap.jpg" alt="Statistik Baca Heatmap" />
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pair-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_stats_pace.jpg', 'Kecepatan Baca & Riwayat Sesi')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_stats_pace.jpg" alt="Kecepatan Baca" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div data-screen-panel="settings-view" class="hidden flex items-center justify-center w-full">
+                <div class="phone-single-item">
+                  <div class="phone-frame cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_settings.jpg', 'Pengaturan & Tema')">
+                    <div class="phone-frame-screen">
+                      <img src="assets/screenshots/ss_settings.jpg" alt="Pengaturan Llunevie" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <span data-i18n="tap_to_zoom" class="font-mono-code text-[10px] sm:text-[10.5px] text-[var(--text-muted)]">Ketuk layar HP untuk memperbesar</span>
+            </div>
+          </div>
+
+          <!-- 3. Feature List + Official Download Box (Bottom on Mobile, Left-Bottom on Desktop) -->
+          <div class="lg:col-span-7 lg:col-start-1 lg:row-start-2 self-start space-y-3.5 sm:space-y-4">
+            <div class="feature-stack">
+              <div class="feature-row">
+                <span class="feature-num">01</span>
+                <div>
+                  <h3 data-i18n="ch6_f1_title" class="text-[13px] sm:text-sm font-semibold">Aktivitas 6 Bulan &amp; Kecepatan Baca</h3>
+                  <p data-i18n="ch6_f1_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Pantau durasi baca harian, rekor hari beruntun, kecepatan halaman/menit, dan riwayat sesi.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-row">
+                <span class="feature-num">02</span>
+                <div>
+                  <h3 data-i18n="ch6_f2_title" class="text-[13px] sm:text-sm font-semibold">4 Tema Baca + Ikuti Mode HP</h3>
+                  <p data-i18n="ch6_f2_desc" class="text-xs leading-relaxed text-[var(--text-secondary)] mt-0.5">
+                    Tersedia tema Paper, White, Sepia, dan Black (AMOLED) atau otomatis mengikuti mode gelap HP.
+                  </p>
+                </div>
               </div>
             </div>
 
             <!-- Official GitHub Release Download Box -->
-            <div class="p-4 sm:p-5 rounded-2xl bg-[var(--bg-recessed)] border border-[var(--border-strong)] flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
-              <div class="space-y-1">
+            <div class="p-3.5 sm:p-5 rounded-2xl bg-[var(--bg-recessed)] border border-[var(--border-strong)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="space-y-0.5">
                 <div class="flex items-center gap-2">
-                  <span data-i18n="dl_card_title" class="font-serif-editorial text-lg sm:text-xl font-medium">Pasang Llunevie di Android</span>
-                  <span data-release-version class="font-mono-code text-[10.5px] px-2 py-0.5 rounded-full bg-[var(--bg-card)] border border-[var(--border-soft)]">v0.2.0</span>
+                  <span data-i18n="dl_card_title" class="font-serif-editorial text-base sm:text-xl font-medium">Pasang Llunevie di Android</span>
+                  <span data-release-version class="font-mono-code text-[10px] px-2 py-0.5 rounded-full bg-[var(--bg-card)] border border-[var(--border-soft)]">v0.2.2</span>
                 </div>
                 <p data-i18n="dl_card_sub" class="text-xs text-[var(--text-secondary)]">
-                  Android 8.0+ (API 26+). File APK langsung dari GitHub Releases.
+                  Android 8.0+ · File APK langsung dari GitHub Releases.
                 </p>
               </div>
               <div class="flex items-center gap-2 shrink-0">
@@ -605,37 +722,10 @@
               </div>
             </div>
           </div>
-
-          <!-- Right Device Screens: Stats Heatmap, Stats Pace & Settings (5 Cols) -->
-          <div class="lg:col-span-5 flex flex-col items-center justify-center gap-3">
-            <div data-screen-panel="stats-pair" class="flex items-center justify-center gap-3 sm:gap-5">
-              <div class="phone-frame w-[155px] sm:w-[205px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_stats_heatmap.jpg', 'Statistik Baca — 6 Bulan Terakhir')">
-                <div class="phone-frame-screen aspect-[480/995]">
-                  <img src="assets/screenshots/ss_stats_heatmap.jpg" alt="Statistik Baca Heatmap" />
-                </div>
-              </div>
-              <div class="phone-frame w-[145px] sm:w-[195px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_stats_pace.jpg', 'Alokasi Waktu Baca & Ritme Baca')">
-                <div class="phone-frame-screen aspect-[480/995]">
-                  <img src="assets/screenshots/ss_stats_pace.jpg" alt="Alokasi Waktu Baca" />
-                </div>
-              </div>
-            </div>
-            <div data-screen-panel="settings-view" class="hidden flex items-center justify-center">
-              <div class="phone-frame w-[175px] sm:w-[215px] cursor-pointer" onclick="openScreenshotLightbox('assets/screenshots/ss_settings.jpg', 'Pengaturan & Tema')">
-                <div class="phone-frame-screen aspect-[480/995]">
-                  <img src="assets/screenshots/ss_settings.jpg" alt="Pengaturan Llunevie" />
-                </div>
-              </div>
-            </div>
-            <div class="segmented-track">
-              <button type="button" data-screen-tab="stats-pair" onclick="switchChapterScreen('chapter-5', 'stats-pair')" class="segmented-pill active">Statistik &amp; Ritme</button>
-              <button type="button" data-screen-tab="settings-view" onclick="switchChapterScreen('chapter-5', 'settings-view')" class="segmented-pill">Pengaturan</button>
-            </div>
-          </div>
         </div>
 
         <!-- Colophon Footer -->
-        <footer class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
+        <footer class="flex items-center justify-between gap-2 pt-2.5 sm:pt-3 border-t border-[var(--border-soft)] text-xs text-[var(--text-muted)]">
           <div class="flex flex-wrap items-center gap-2">
             <span class="font-serif-editorial text-sm text-[var(--text-primary)]">Llunevie</span>
             <span>·</span>
@@ -643,7 +733,7 @@
             <span>·</span>
             <span>Inspired by <a href="https://www.behance.net/gallery/255117785/Flyleaf-a-journal-an-eReader-and-Press-for-reading" target="_blank" rel="noopener noreferrer" class="hover:underline text-[var(--text-secondary)]">Flyleaf</a></span>
           </div>
-          <button type="button" onclick="scrollToChapter(0)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline">
+          <button type="button" onclick="scrollToChapter(0)" class="font-mono-code text-[11px] text-[var(--text-primary)] hover:underline shrink-0">
             ↑ TOP
           </button>
         </footer>
